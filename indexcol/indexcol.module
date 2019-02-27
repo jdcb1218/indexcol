@@ -1,0 +1,74 @@
+<?php
+
+/**
+ * @file
+ * Custom Module // Created
+ * @author Juan David Ceballos.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+
+function indexcol_menu() {
+  $items = array();
+  $items['admin/config/indexcol'] = array(
+    'title' => t('Configuration indexcol'),
+    'description' => 'Settings params indexcol',
+    'position' => 'left',
+    'weight' => -15,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('indexcol_form'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'includes/indexcol.config.inc',
+  );
+
+  $items['admin/config/indexcol/list'] = array(
+    'title' => t('List results data Request'),
+    'page callback' => 'indexcol_list_request',
+    'access callback' => TRUE,
+    'file' => 'includes/indexcol.list.inc',
+  );
+
+  $items['admin/config/indexcol/groups'] = array(
+    'title' => t('Configuration indexcol'),
+    'description' => 'List Groups Ajax',
+    'position' => 'left',
+    'weight' => -15,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('indexcol_form'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'includes/indexcol-list-ajax.inc',
+  );
+
+  $items['admin/config/indexcol/slider'] = array(
+    'title' => t('Slider List results data Request'),
+    'page callback' => 'indexcol_slider',
+    'access callback' => TRUE,
+    'file' => 'includes/indexcol.slider.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_help().
+ */
+function indexcol_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#indexcol':
+      return '<p>' . t('Links render indexcol', array('storage' => 'Request Data' )) . '</p>';
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function indexcol_permission() {
+  return array(
+    'administer indexcol' =>  array(
+      'title' => t('Administer indexcol'),
+      'description' => t('Perform administration indexcol'),
+    ),
+  );
+}

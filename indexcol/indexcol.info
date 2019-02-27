@@ -1,0 +1,14 @@
+name = indexcol
+description = module get data request
+files[] = indexcol.module
+configure = admin/config/indexcol
+stylesheets[all][] = css/nav_menu.css
+stylesheets[all][] = css/slider_one.css
+dependencies[] = entity
+dependencies[] = jquery_update
+scripts[] = js/modernizr.custom.js
+scripts[] = js/jquery.cbpFWSlider.js
+version = "7.x-1.4"
+core = "7.x"
+project = "indexcol"
+datestamp = "1470638340"

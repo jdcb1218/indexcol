@@ -1,0 +1,10 @@
+/*Button publish*/
+#menu_nav { 
+	display: none; 
+	overflow: hidden; 
+	position: fixed; 
+
+}  
+#menu_nav:hover { 
+	text-decoration: underline; 
+}
